@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 
-const modalRoot = document.querySelector('#modal-root');
+// const modalRoot = document.querySelector('#modal-root');
 
 export default function Modal({ onClose, webformatURL }) {
   useEffect(() => {
@@ -23,15 +23,14 @@ export default function Modal({ onClose, webformatURL }) {
     }
   };
 
-  return createPortal(
+  return (
     <div className="Overlay" onClick={handleBackdropClick}>
       <div className="Modal">
         <img src={webformatURL} alt="" />
       </div>
-    </div>,
-    modalRoot
+    </div>
   );
 }
-Modal.PropTypes = {
+Modal.propTypes = {
   onClose: PropTypes.func,
 };

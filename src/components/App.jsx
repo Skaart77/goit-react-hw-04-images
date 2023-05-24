@@ -54,8 +54,8 @@ function App() {
   };
 
   const onCurrentImageClick = largeImgURL => {
-    setShowModal(!showModal);
     setLargeImgURL(largeImgURL);
+    setShowModal(!showModal);
   };
   return (
     <div className="App">
