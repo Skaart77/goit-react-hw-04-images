@@ -60,14 +60,10 @@ function App() {
   return (
     <div className="App">
       <Searchbar onSubmit={handleFormSubmit} />
-      {isLoading === 'false' && <Loader />}
-      {showModal && (
-        <Modal onClose={toogleModal}>
-          <img src={largeImgURL} alt="" />
-        </Modal>
-      )}
+      {showModal && <Modal onClose={toogleModal} webformatURL={largeImgURL} />}
       <ImageGallery items={images} onClickImg={onCurrentImageClick} />
       {images.length >= 12 && <Button onLoadMoreBtnClick={onLoadMore} />}
+      {isLoading === 'false' && <Loader />}
       <ToastContainer
         position="top-right"
         autoClose={3000}
