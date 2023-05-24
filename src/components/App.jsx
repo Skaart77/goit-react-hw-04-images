@@ -11,7 +11,7 @@ import Loader from './Loader/loader';
 function App() {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [, setError] = useState(null);
   const [page, setPage] = useState(1);
   const [showModal, setShowModal] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
