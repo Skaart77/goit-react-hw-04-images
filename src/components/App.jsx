@@ -60,7 +60,7 @@ function App() {
   return (
     <div className="App">
       <Searchbar onSubmit={handleFormSubmit} />
-      {isLoading && <Loader />}
+      {isLoading === 'false' && <Loader />}
       {showModal && (
         <Modal onClose={toogleModal}>
           <img src={largeImgURL} alt="" />
