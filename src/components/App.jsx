@@ -54,14 +54,18 @@ function App() {
   };
 
   const onCurrentImageClick = largeImgURL => {
-    setShowModal(setLargeImgURL(largeImgURL), !showModal);
+    setShowModal(!showModal);
+    setLargeImgURL(largeImgURL);
   };
-
   return (
     <div className="App">
       <Searchbar onSubmit={handleFormSubmit} />
       {isLoading && <Loader />}
-      {showModal && <Modal onClose={toogleModal} webformatURL={largeImgURL} />}
+      {showModal && (
+        <Modal onClose={toogleModal}>
+          <img src={largeImgURL} alt="" />
+        </Modal>
+      )}
       <ImageGallery items={images} onClickImg={onCurrentImageClick} />
       {images.length >= 12 && <Button onLoadMoreBtnClick={onLoadMore} />}
       <ToastContainer

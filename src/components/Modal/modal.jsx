@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const modalRoot = document.querySelector('#modal-root');
 
-export default function Modal({ onClose, webformatURL }) {
+export default function Modal({ onClose, children }) {
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.code === 'Escape') {
@@ -25,16 +25,13 @@ export default function Modal({ onClose, webformatURL }) {
 
   return createPortal(
     <div className="Overlay" onClick={handleBackdropClick}>
-      <div className="Modal">
-        <img src={webformatURL} alt="" />
-      </div>
+      <div className="Modal">{children}</div>
     </div>,
     modalRoot
   );
 }
 Modal.PropTypes = {
   onClose: PropTypes.func,
-  webformatURL: PropTypes.string,
 };
 // export default class Modal extends Component {
 //   static propTypes = {
