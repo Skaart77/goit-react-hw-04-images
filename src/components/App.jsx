@@ -11,7 +11,7 @@ import Loader from './Loader/loader';
 function App() {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [, setError] = useState(null);
+  // const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
   const [showModal, setShowModal] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -35,7 +35,8 @@ function App() {
           setIsLoading(true);
         }
       } catch (error) {
-        setError(error);
+        toast.error('Sorry, an error occurred!');
+      } finally {
         setIsLoading(false);
       }
     };
